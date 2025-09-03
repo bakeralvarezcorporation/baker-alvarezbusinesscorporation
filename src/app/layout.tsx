@@ -9,7 +9,6 @@ import ThemeSelector from './ui/components/ThemeSelector';
 import { getSiteInfo } from './lib/wordpress';
 import WhatsAppButton from './ui/components/WhatsappButton';
 
-import Script from 'next/script';
 import ChatwayDesktop from './ui/components/ChatWay';
 const inter = Inter({ subsets: ['latin'] });
 const siteInfo = await getSiteInfo();
