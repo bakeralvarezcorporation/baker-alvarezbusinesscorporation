@@ -29,7 +29,7 @@ const Navigation: React.FC = () => {
           const defaultMenuItems: MenuItem[] = [
             { ID: 1, title: 'Inicio', url: '/', object_slug: 'home' },
             { ID: 2, title: 'Servicios', url: '/servicios', object_slug: 'services' },
-            { ID: 3, title: 'Nosotros', url: '/nosotros', object_slug: 'about' },
+            /* { ID: 3, title: 'Nosotros', url: '/nosotros', object_slug: 'about' }, */
             { ID: 4, title: 'Galería de Imágenes', url: '/galeria', object_slug: 'galeria' },
             /* { ID: 4, title: 'Blog', url: '/blog', object_slug: 'blog' }, */
             { ID: 5, title: 'Contacto', url: '/contacto', object_slug: 'contact' },
@@ -42,7 +42,7 @@ const Navigation: React.FC = () => {
         const defaultMenuItems: MenuItem[] = [
           { ID: 1, title: 'Inicio', url: '/', object_slug: 'home' },
           { ID: 2, title: 'Servicios', url: '/servicios', object_slug: 'services' },
-          { ID: 3, title: 'Nosotros', url: '/nosotros', object_slug: 'about' },
+          /* { ID: 3, title: 'Nosotros', url: '/nosotros', object_slug: 'about' }, */
           { ID: 4, title: 'Galería de Imágenes', url: '/galeria', object_slug: 'galeria' },
           /* { ID: 4, title: 'Blog', url: '/blog', object_slug: 'blog' }, */
           { ID: 5, title: 'Contacto', url: '/contacto', object_slug: 'contact' },
