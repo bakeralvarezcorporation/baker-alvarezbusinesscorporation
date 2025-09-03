@@ -5,10 +5,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:blue": "cross-env NEXT_PUBLIC_THEME=blue next build",
-    "build:green": "cross-env NEXT_PUBLIC_THEME=green next build",
-    "build:purple": "cross-env NEXT_PUBLIC_THEME=purple next build",
-    "build:rose": "cross-env NEXT_PUBLIC_THEME=rose next build",
     "start": "next start"
   },
   "dependencies": {
