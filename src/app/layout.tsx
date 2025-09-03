@@ -33,7 +33,7 @@ export default function RootLayout({
             </div>
             <Navigation />
             <main className="flex-grow">
-            <WhatsAppButton phone='50769177402' message='Hola, gracias por contactarnos.'/>
+            <WhatsAppButton phone='50769177402' />
               {children}
             </main>
             <ChatwayDesktop />

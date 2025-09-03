@@ -5,11 +5,10 @@ import { FaWhatsapp } from "react-icons/fa";
 
 interface WhatsAppButtonProps {
   phone: string; // Número de WhatsApp en formato internacional (ej: "50760000000")
-  message?: string; // Mensaje inicial opcional
 }
 
-const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ phone, message }) => {
-  const whatsappUrl = `https://wa.me/${phone}${message ? `?text=${encodeURIComponent(message)}` : ""}`;
+const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ phone }) => {
+  const whatsappUrl = `https://wa.me/${phone}`;
 
   return (
     <a
