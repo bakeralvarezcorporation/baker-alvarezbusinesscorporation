@@ -81,6 +81,7 @@ const Contacto: React.FC = () => {
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                         Nombre completo *
                       </label>
+                      <input type="text" name="_honey" style={{display: "none"}}></input>
                       <input
                         type="text"
                         id="name"
@@ -154,6 +155,9 @@ const Contacto: React.FC = () => {
                       required
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#BE9A42] focus:border-[#BE9A42] outline-none transition-colors"
                     ></textarea>
+
+                    {/* Deshabilitar reCaptcha */}
+                    <input type="hidden" name="_captcha" value="false"></input>
                   </div>
 
                   <div>
