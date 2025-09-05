@@ -232,7 +232,7 @@ const Contacto: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="font-medium text-gray-900">Dirección</h3>
-                      <p className="text-gray-600">123 Calle Principal, Ciudad, CP 12345</p>
+                      <p className="text-gray-600">PH  Plaza 2000, frente a Plaza New York</p>
                     </div>
                   </div>
 
@@ -256,7 +256,7 @@ const Contacto: React.FC = () => {
                     </div>
                     <div>
                       <h3 className="font-medium text-gray-900">Email</h3>
-                      <p className="text-gray-600">bakeralvarezcorporation@gmail.com</p>
+                      <p className="text-gray-600">bufete.letradosyarquitectos@gmail.com</p>
                     </div>
                   </div>
 
