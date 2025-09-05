@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
               <p>PH Plaza 2000, frente a Plaza New York</p>
               <p>Panamá</p>
               <p>Tel: (+507) 6917-7402</p>
-              <p>Email: bufete.letradosyarquitectos@gamil.com</p>
+              <p>Email: bufete.letradosyarquitectos@gmail.com</p>
             </address>
           </div>
           <div className="flex space-x-4">
