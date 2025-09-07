@@ -22,8 +22,9 @@ const Navigation: React.FC = () => {
 
   const menuItems: MenuItem[] = [
     { ID: 1, title: 'Inicio', url: '/', object_slug: 'home' },
+    { ID: 2, title: 'Nosotros', url: '/nosotros', object_slug: 'nosotros' },
     {
-      ID: 2,
+      ID: 3,
       title: 'Servicios',
       url: '/servicios',
       object_slug: 'services',

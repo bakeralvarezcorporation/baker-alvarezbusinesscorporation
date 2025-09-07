@@ -1,138 +1,156 @@
-// pages/nosotros.tsx
+// app/nosotros/page.tsx
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { Metadata } from 'next';
 
 import * as motion from "motion/react-client";
+import HeroSection from '../ui/components/HeroSection';
+import AnimatedButton from '../ui/motion/AnimatedButton';
 
-const Nosotros: React.FC = () => {
-  // Estos datos vendrían de WordPress en producción
-  const team = [
-    {
-      id: 1,
-      name: 'María García',
-      position: 'CEO & Fundadora',
-      bio: 'Más de 10 años de experiencia en desarrollo web y marketing digital.',
-      image: '/worker-1.jpg'
-    },
-    {
-      id: 2,
-      name: 'Carlos Rodríguez',
-      position: 'Desarrollador Senior',
-      bio: 'Especialista en React, Next.js y WordPress headless.',
-      image: '/worker-1.jpg'
-    },
-    {
-      id: 3,
-      name: 'Ana Martínez',
-      position: 'Diseñadora UX/UI',
-      bio: 'Apasionada por crear experiencias de usuario excepcionales.',
-      image: '/worker-1.jpg'
-    },
-    {
-      id: 4,
-      name: 'Javier López',
-      position: 'Especialista en SEO',
-      bio: 'Ayudando a negocios a mejorar su visibilidad en buscadores.',
-      image: '/worker-1.jpg'
-    }
-  ];
+export const metadata: Metadata = {
+  title: 'Nuestra Esencia - Experiencia, Discreción y Soluciones a Medida',
+  description: 'Firma especializada en soluciones jurídicas y fiduciarias de alta gama para clientes internacionales. Protección patrimonial, planificación sucesoria y asesoría legal especializada.',
+};
 
-  const stats = [
-    { number: '150+', label: 'Proyectos Completados' },
-    { number: '50+', label: 'Clientes Satisfechos' },
-    { number: '8+', label: 'Años de Experiencia' },
-    { number: '15+', label: 'Profesionales' }
-  ];
-
+export default function Nosotros() {
   return (
     <>
-    <motion.div
-      layout 
-      initial={{opacity: 0}}
-      animate={{ opacity: 1 }} 
-      transition={{
-        default: { ease: "linear" },
-        layout: { duration: 0.3 }
-      }}
-    >
-      <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-100">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Sobre Nosotros</h1>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Somos un equipo apasionado por crear soluciones web innovadoras que impulsen el crecimiento de tu negocio
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
-            <div>
-              <div className="relative h-96 w-full">
-                <Image
-                  src="/our-team.jpg"
-                  alt="Nuestro equipo"
-                  fill
-                  className="object-cover rounded-lg"
-                />
-              </div>
-            </div>
-            <div>
-              <h2 className="text-3xl font-bold mb-6">Nuestra Historia</h2>
-              <p className="text-gray-700 mb-4">
-                Fundada en 2015, nuestra empresa nació con la visión de combinar la potencia de WordPress
-                con tecnologías modernas para ofrecer experiencias web excepcionales.
-              </p>
-              <p className="text-gray-700 mb-4">
-                Creemos en la simplicidad, el diseño elegante y la funcionalidad robusta. Nuestro enfoque
-                se centra en entender las necesidades únicas de cada cliente y ofrecer soluciones a medida
-                que generen resultados tangibles.
-              </p>
-              <p className="text-gray-700">
-                Hoy, seguimos innovando con arquitecturas headless que ofrecen lo mejor de ambos mundos:
-                la facilidad de uso de WordPress y el rendimiento de frameworks modernos como Next.js.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-            {stats.map((stat, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">{stat.number}</div>
-                <div className="text-gray-700">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold mb-4">Nuestro Equipo</h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Conoce a las personas talentosas detrás de nuestros proyectos
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member) => (
-              <div key={member.id} className="bg-white rounded-lg shadow-md overflow-hidden text-center">
-                <div className="relative h-60 w-full">
+      <motion.div>
+        <HeroSection pageTitle="Nosotros" />
+        {/* Mission Section */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col lg:flex-row items-center gap-12">
+              <div className="lg:w-1/2">
+                <div className="relative h-96 w-full rounded-xl overflow-hidden">
                   <Image
-                    src={member.image}
-                    alt={member.name}
+                    src="/our-team.jpg"
+                    alt="Nuestra Misión"
                     fill
                     className="object-cover"
                   />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
-                  <p className="text-blue-600 mb-3">{member.position}</p>
-                  <p className="text-gray-600">{member.bio}</p>
-                </div>
               </div>
-            ))}
+              <div className="lg:w-1/2">
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">Nuestra Misión</h2>
+                <p className="text-lg text-gray-700 mb-6">
+                  Somos una firma especializada que proporciona soluciones jurídicas y fiduciarias 
+                  de alta gama para clientes internacionales. Nuestra razón de ser es diseñar e 
+                  implementar estructuras patrimoniales robustas, eficientes y discretas, adaptadas 
+                  a las necesidades específicas de cada persona, familia o negocio.
+                </p>
+                <p className="text-lg text-gray-700">
+                  Nos dedicamos a proteger sus activos, preservar su legado y facilitar su crecimiento 
+                  en un entorno global seguro.
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
-    </motion.div>
+        </section>
+
+        {/* Values Section */}
+        <section className="py-16 bg-[#201C19]">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-white mb-4">Nuestros Valores Fundamentales</h2>
+              <p className="text-xl text-white max-w-3xl mx-auto">
+                Los pilares que sustentan nuestro compromiso con la excelencia y la confidencialidad
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* Confidencialidad */}
+              <div className="text-center">
+                <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-10 h-10 text-[#BE9A42] " fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-4 text-[#BE9A42] ">Confidencialidad y Discreción</h3>
+                <p className="text-white">
+                  Entendemos la sensibilidad de su información. Operamos con los más altos estándares 
+                  de privacidad y secreto profesional.
+                </p>
+              </div>
+
+              {/* Excelencia */}
+              <div className="text-center">
+                <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-10 h-10 text-[#BE9A42] " fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-4 text-[#BE9A42] ">Excelencia Técnica</h3>
+                <p className="text-white">
+                  Nuestro equipo posee un conocimiento profundo y actualizado de las legislaciones 
+                  locales e internacionales, asegurando soluciones legalmente sólidas.
+                </p>
+              </div>
+
+              {/* Personalizado */}
+              <div className="text-center">
+                <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-10 h-10 text-[#BE9A42] " fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-4 text-[#BE9A42] ">Enfoque Personalizado</h3>
+                <p className="text-white">
+                  Rechazamos las soluciones genéricas. Escuchamos sus objetivos únicos para construir 
+                  una estrategia hecha a su medida.
+                </p>
+              </div>
+
+              {/* Seriedad */}
+              <div className="text-center">
+                <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-10 h-10 text-[#BE9A42] " fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-4 text-[#BE9A42] ">Seriedad y Compromiso</h3>
+                <p className="text-white ">
+                  Forjamos relaciones a largo plazo basadas en la integridad, la transparencia y el 
+                  compromiso inquebrantable con sus intereses.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-24 bg-[#E6E8EC]">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl font-bold mb-6 text-[#1E3A5F] ">Su Socio Estratégico</h2>
+            <p className="text-lg mb-8 max-w-3xl mx-auto text-[#1E3A76] ">
+              Más que un proveedor de servicios, nos posicionamos como sus consejeros de confianza. 
+              Le acompañamos en el diseño de su estrategia patrimonial global, proporcionando la 
+              seguridad jurídica y la paz mental que necesita.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <AnimatedButton>
+                <Link 
+                  href="/contacto"
+                  className=" bg-[#1E3A5F] text-white px-8 py-3 rounded-md font-medium"
+                >
+                  Contáctenos
+                </Link>
+
+              </AnimatedButton>
+              <AnimatedButton>
+                <Link 
+                  href="/servicios"
+                  className="border border-[#BE9A42] text-[#BE9A42] px-8 py-3 rounded-md font-medium"
+                >
+                  Nuestros Servicios
+                </Link>
+              </AnimatedButton>
+            </div>
+          </div>
+        </section>
+      </motion.div>
+
     </>
   );
-};
-
-export default Nosotros;
+}
