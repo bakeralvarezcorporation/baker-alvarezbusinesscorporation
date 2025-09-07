@@ -9,6 +9,8 @@ import * as motion from "motion/react-client";
 
 import { Service, Props } from '@/app/interfaces/singleService';
 import { getSiteInfo } from '@/app/lib/wordpress';
+import Breadcrumb from '@/app/ui/components/Breadcrumb';
+import AnimatedButton from '@/app/ui/motion/AnimatedButton';
 
 const siteInfo = await getSiteInfo();
 // Generar metadata dinámica
@@ -111,28 +113,11 @@ export default async function ServiceDetail(props: Props) {
         default: { ease: "linear" },
         layout: { duration: 0.3 }
       }}
+      className='px-4 py-8'
     >
 
       {/* Breadcrumb */}
-      <nav className="bg-gray-100 py-4">
-        <div className="container mx-auto px-4">
-          <ol className="list-none p-0 inline-flex">
-            <li className="flex items-center">
-              <Link href="/" className="text-blue-600 hover:text-blue-800">Inicio</Link>
-              <svg className="w-3 h-3 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </li>
-            <li className="flex items-center">
-              <Link href="/servicios" className="text-blue-600 hover:text-blue-800">Servicios</Link>
-              <svg className="w-3 h-3 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </li>
-            <li className="text-gray-500" dangerouslySetInnerHTML={{ __html: service.title.rendered }} />
-          </ol>
-        </div>
-      </nav>
+      <Breadcrumb currentPage={service.title.rendered} parentPage='servicios' />
 
       {/* Hero Section */}
       <section className="py-12 bg-gradient-to-r from-blue-50 to-indigo-100">
@@ -181,9 +166,11 @@ export default async function ServiceDetail(props: Props) {
                 </div>
               )}
               
-              <button className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors font-medium">
-                Solicitar este servicio
-              </button>
+              <AnimatedButton>
+               <Link href="/contacto" className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors font-medium">
+                  Solicitar este servicio
+               </Link>
+              </AnimatedButton>
             </div>
             
             <div className="md:w-1/2">
@@ -207,7 +194,7 @@ export default async function ServiceDetail(props: Props) {
       </section>
 
       {/* Detalles del servicio */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-12">
             <div className="lg:w-2/3">
@@ -292,7 +279,7 @@ export default async function ServiceDetail(props: Props) {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Galería de imágenes */}
       {service.acf.gallery && service.acf.gallery.length > 1 && (
