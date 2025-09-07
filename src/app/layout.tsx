@@ -33,7 +33,7 @@ export default function RootLayout({
             <CustomCursor />
             <div className="min-h-screen flex flex-col">
               <Header />
-              <div className="container mx-auto px-4 py-2">
+              <div className="container mx-auto px-4">
                 <ThemeSelector />
               </div>
               <div className='relative z-50 md:mb-8'>
