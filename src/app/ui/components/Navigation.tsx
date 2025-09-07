@@ -4,108 +4,176 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { MenuItem } from '@/app/interfaces/menuItem';
 import AnimatedButton from '../motion/AnimatedButton';
+import { motion, AnimatePresence } from 'framer-motion';
+
+interface MenuItem {
+  ID: number;
+  title: string;
+  url: string;
+  object_slug: string;
+  children?: MenuItem[];
+}
 
 const Navigation: React.FC = () => {
-  const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openMobileSubmenus, setOpenMobileSubmenus] = useState<number[]>([]);
   const pathname = usePathname();
 
-  useEffect(() => {
-    const fetchMenuItems = async () => {
-      try {
-        // Intentar obtener el menú desde la API de WordPress
-        const response = await fetch(
-          `${process.env.WORDPRESS_API_URL}/wp-api-menus/v2/menu-locations/primary`
-        );
+  const menuItems: MenuItem[] = [
+    { ID: 1, title: 'Inicio', url: '/', object_slug: 'home' },
+    {
+      ID: 2,
+      title: 'Servicios',
+      url: '/servicios',
+      object_slug: 'services',
+      children: [
+        { ID: 21, title: 'Derecho comercial', url: '/servicios/derecho-comercial', object_slug: 'derecho-comercial' },
+        { ID: 22, title: 'Servicios fiduciarios', url: '/servicios/servicios-fiduciarios', object_slug: 'servicios-fiduciarios' },
+        { ID: 23, title: 'Asesoría de inversiones', url: '/servicios/asesoria-de-inversiones', object_slug: 'asesoria-de-inversiones' },
+        { ID: 24, title: 'Estructuras internacionales', url: '/servicios/estructuras-internacionales', object_slug: 'estructuras-internacionales' },
+      ],
+    },
+    { ID: 4, title: 'Galería de Imágenes', url: '/galeria', object_slug: 'galeria' },
+    {
+      ID: 5,
+      title: 'Publicaciones',
+      url: '/blog',
+      object_slug: 'blog',
+      /* children: [
+        { ID: 51, title: 'Noticias', url: '/blog/noticias', object_slug: 'noticias' },
+        { ID: 52, title: 'Artículos', url: '/blog/articulos', object_slug: 'articulos' },
+      ], */
+    },
+    { ID: 6, title: 'Contacto', url: '/contacto', object_slug: 'contact' },
+  ];
 
-        if (response.ok) {
-          const menuData = await response.json();
-          setMenuItems(menuData.items);
-        } else {
-          // Fallback si la API de menús no está disponible
-          console.warn('No se pudo cargar el menú desde WordPress, usando menú por defecto');
-          const defaultMenuItems: MenuItem[] = [
-            { ID: 1, title: 'Inicio', url: '/', object_slug: 'home' },
-            { ID: 2, title: 'Servicios', url: '/servicios', object_slug: 'services' },
-            /* { ID: 3, title: 'Nosotros', url: '/nosotros', object_slug: 'about' }, */
-            { ID: 4, title: 'Galería de Imágenes', url: '/galeria', object_slug: 'galeria' },
-            { ID: 5, title: 'Publicaciones', url: '/blog', object_slug: 'blog' },
-            { ID: 6, title: 'Contacto', url: '/contacto', object_slug: 'contact' },
-          ];
-          setMenuItems(defaultMenuItems);
-        }
-      } catch (error) {
-        console.error('Error fetching menu items:', error);
-        // Fallback en caso de error
-        const defaultMenuItems: MenuItem[] = [
-          { ID: 1, title: 'Inicio', url: '/', object_slug: 'home' },
-          { ID: 2, title: 'Servicios', url: '/servicios', object_slug: 'services' },
-          /* { ID: 3, title: 'Nosotros', url: '/nosotros', object_slug: 'about' }, */
-          { ID: 4, title: 'Galería de Imágenes', url: '/galeria', object_slug: 'galeria' },
-          { ID: 5, title: 'Publicaciones', url: '/blog', object_slug: 'blog' },
-          { ID: 6, title: 'Contacto', url: '/contacto', object_slug: 'contact' },
-        ];
-        setMenuItems(defaultMenuItems);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchMenuItems();
-  }, []);
-
-  // Cerrar el menú móvil al cambiar de página
   useEffect(() => {
     setIsMobileMenuOpen(false);
+    setOpenMobileSubmenus([]);
   }, [pathname]);
 
-  if (isLoading) {
-    return (
-      <nav className="bg-[#201C19] border-t border-b border-border">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center py-3">
-            <div className="animate-pulse flex space-x-4">
-              <div className="hidden md:flex space-x-8">
-                {[...Array(5)].map((_, i) => (
-                  <div key={i} className="h-4 bg-gray-300 rounded w-16"></div>
-                ))}
-              </div>
-            </div>
-            <div className="md:hidden">
-              <div className="h-6 w-6 bg-gray-300 rounded"></div>
-            </div>
-          </div>
-        </div>
-      </nav>
+  const isActive = (item: MenuItem): boolean => {
+    if (pathname === item.url || pathname.startsWith(item.url + '/')) return true;
+    if (item.children) return item.children.some((child) => isActive(child));
+    return false;
+  };
+
+  const toggleMobileSubmenu = (id: number) => {
+    setOpenMobileSubmenus((prev) =>
+      prev.includes(id) ? prev.filter((openId) => openId !== id) : [...prev, id]
     );
-  }
+  };
+
+  const renderMenuItem = (item: MenuItem) => {
+    const active = isActive(item);
+    return (
+      <li key={item.ID} className="relative group">
+        <AnimatedButton>
+          <Link
+            href={item.url}
+            className={`font-medium transition-colors ${
+              active ? 'text-[#BE9A42]' : 'text-primary-50 hover:text-amber-200'
+            }`}
+          >
+            {item.title}
+          </Link>
+        </AnimatedButton>
+
+        {item.children && (
+          <AnimatePresence>
+            <motion.ul
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="absolute left-0 top-full  hidden min-w-[280px] space-y-2 rounded-lg bg-[#2A2623] p-3 shadow-lg group-hover:block"
+            >
+              {item.children.map((child) => (
+                <li key={child.ID}>
+                  <Link
+                    href={child.url}
+                    className={`block font-medium transition-colors ${
+                      isActive(child)
+                        ? 'text-[#BE9A42]'
+                        : 'text-primary-50 hover:text-amber-200'
+                    }`}
+                  >
+                    {child.title}
+                  </Link>
+                </li>
+              ))}
+            </motion.ul>
+          </AnimatePresence>
+        )}
+      </li>
+    );
+  };
+
+  const renderMobileItem = (item: MenuItem) => {
+    const active = isActive(item);
+    const isOpen = openMobileSubmenus.includes(item.ID);
+
+    return (
+      <li key={item.ID}>
+        <div className="flex items-center justify-between">
+          <Link
+            href={item.url}
+            className={`block py-2 font-medium transition-colors ${
+              active ? 'text-[#BE9A42]' : 'text-primary-50 hover:text-amber-200'
+            }`}
+          >
+            {item.title}
+          </Link>
+          {item.children && (
+            <button
+              onClick={() => toggleMobileSubmenu(item.ID)}
+              className="text-primary-50 focus:outline-none"
+              aria-label="Toggle submenu"
+            >
+              {isOpen ? '−' : '+'}
+            </button>
+          )}
+        </div>
+
+        {item.children && (
+          <AnimatePresence>
+            {isOpen && (
+              <motion.ul
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.25 }}
+                className="ml-4 mt-1 space-y-2 border-l border-border pl-3 overflow-hidden"
+              >
+                {item.children.map((child) => (
+                  <li key={child.ID}>
+                    <Link
+                      href={child.url}
+                      className={`block py-1 text-sm transition-colors ${
+                        isActive(child)
+                          ? 'text-[#BE9A42]'
+                          : 'text-primary-50 hover:text-amber-200'
+                      }`}
+                    >
+                      {child.title}
+                    </Link>
+                  </li>
+                ))}
+              </motion.ul>
+            )}
+          </AnimatePresence>
+        )}
+      </li>
+    );
+  };
 
   return (
-    <nav className="bg-[#201C19] border-t border-b border-border">
+    <nav className="bg-[#201C19] border-t border-b border-border absolute w-full left-0 top-0">
       <div className="container mx-auto px-4">
         {/* Desktop Menu */}
         <div className="hidden md:flex">
-          <ul className="flex space-x-8 py-3">
-            {menuItems.map((item) => (
-              <li key={item.ID}>
-                <AnimatedButton>
-                  <Link 
-                    href={item.url} 
-                    className={`font-medium transition-colors hover:text-amber-200 ${
-                      pathname === item.url 
-                        ? 'text-[#BE9A42]' 
-                        : 'text-primary-50 hover:text-primary-hover'
-                    }`}
-                  >
-                    {item.title}
-                  </Link>
-                </AnimatedButton>
-              </li>
-            ))}
-          </ul>
+          <ul className="flex space-x-8 py-3">{menuItems.map((item) => renderMenuItem(item))}</ul>
         </div>
 
         {/* Mobile Menu */}
@@ -142,27 +210,21 @@ const Navigation: React.FC = () => {
             </button>
           </div>
 
-          {/* Mobile Menu Items */}
-          {isMobileMenuOpen && (
-            <div className="py-4 border-t border-border">
-              <ul className="space-y-3">
-                {menuItems.map((item) => (
-                  <li key={item.ID}>
-                    <Link 
-                      href={item.url} 
-                      className={`block py-2 font-medium transition-colors ${
-                        pathname === item.url 
-                          ? 'text-[#BE9A42]' 
-                          : 'text-primary-50 hover:text-amber-200'
-                      }`}
-                    >
-                      {item.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+          <AnimatePresence>
+            {isMobileMenuOpen && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="py-4 border-t border-border overflow-hidden"
+              >
+                <ul className="space-y-3">
+                  {menuItems.map((item) => renderMobileItem(item))}
+                </ul>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </nav>

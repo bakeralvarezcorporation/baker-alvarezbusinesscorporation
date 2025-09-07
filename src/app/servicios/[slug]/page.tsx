@@ -187,7 +187,7 @@ export default async function ServiceDetail(props: Props) {
             </div>
             
             <div className="md:w-1/2">
-              {service.acf.gallery /* service.acf.gallery.length > 0 */ ? (
+              {service.acf.gallery && service.acf.gallery.length > 0  ? (
                 <div className="relative h-80 w-full rounded-xl overflow-hidden">
                   <Image
                     src={service.acf.gallery[0]}

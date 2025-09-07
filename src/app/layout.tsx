@@ -36,7 +36,9 @@ export default function RootLayout({
               <div className="container mx-auto px-4 py-2">
                 <ThemeSelector />
               </div>
-              <Navigation />
+              <div className='relative p-2 z-50 bg-amber-500'>
+                <Navigation />
+              </div>
               <main className="flex-grow">
               <WhatsAppButton phone='50769177402' />
                 {children}
