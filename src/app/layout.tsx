@@ -36,7 +36,7 @@ export default function RootLayout({
               <div className="container mx-auto px-4 py-2">
                 <ThemeSelector />
               </div>
-              <div className='relative p-2 z-50 bg-amber-500'>
+              <div className='relative z-50'>
                 <Navigation />
               </div>
               <main className="flex-grow">
