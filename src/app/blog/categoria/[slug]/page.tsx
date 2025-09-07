@@ -10,6 +10,8 @@ import { WPPost } from '@/app/interfaces/wordpressApi';
 import { Category, Props } from '@/app/interfaces/category';
 import { getSiteInfo } from '@/app/lib/wordpress';
 
+import * as motion from "motion/react-client";
+
 // Generar metadata dinámica
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
@@ -178,6 +180,15 @@ export default async function CategoryPage(props: Props) {
 
   return (
     <>
+    <motion.div
+      layout 
+      initial={{opacity: 0}}
+      animate={{ opacity: 1 }} 
+      transition={{
+        default: { ease: "linear" },
+        layout: { duration: 0.3 }
+      }}
+    >
       {/* Breadcrumb */}
       <nav className="bg-gray-100 py-4">
         <div className="container mx-auto px-4">
@@ -394,6 +405,7 @@ export default async function CategoryPage(props: Props) {
           </div>
         </div>
       </section>
+    </motion.div>
     </>
   );
 }

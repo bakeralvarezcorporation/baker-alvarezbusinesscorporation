@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
+import * as motion from "motion/react-client";
+
 import { Service, Props } from '@/app/interfaces/singleService';
 import { getSiteInfo } from '@/app/lib/wordpress';
 
@@ -35,7 +37,7 @@ export async function generateStaticParams() {
     if (!response.ok) {
       throw new Error('Failed to fetch services');
     }
-    
+
     const services: Service[] = await response.json();
     return services.map((service) => ({
       slug: service.slug,
@@ -60,6 +62,8 @@ async function getService(slug: string): Promise<Service | null> {
     
     const services: Service[] = await response.json();
     //console.log("Mostrando cpt service: ", services)
+    //console.log("Muestro otra cosa aqui: ", services[0].acf)
+
     return services.length > 0 ? services[0] : null;
   } catch (error) {
     console.error('Error fetching service:', error);
@@ -91,7 +95,6 @@ export default async function ServiceDetail(props: Props) {
   // Esperar a que los params se resuelvan
   const { slug } = await props.params;
   const service = await getService(slug);
-  
   if (!service) {
     notFound();
   }
@@ -100,6 +103,16 @@ export default async function ServiceDetail(props: Props) {
 
   return (
     <>
+    <motion.div 
+      layout 
+      initial={{opacity: 0}}
+      animate={{ opacity: 1 }} 
+      transition={{
+        default: { ease: "linear" },
+        layout: { duration: 0.3 }
+      }}
+    >
+
       {/* Breadcrumb */}
       <nav className="bg-gray-100 py-4">
         <div className="container mx-auto px-4">
@@ -174,7 +187,7 @@ export default async function ServiceDetail(props: Props) {
             </div>
             
             <div className="md:w-1/2">
-              {service.acf.gallery && service.acf.gallery.length > 0 ? (
+              {service.acf.gallery /* service.acf.gallery.length > 0 */ ? (
                 <div className="relative h-80 w-full rounded-xl overflow-hidden">
                   <Image
                     src={service.acf.gallery[0]}
@@ -347,6 +360,7 @@ export default async function ServiceDetail(props: Props) {
           </div>
         </section>
       )}
+    </motion.div>
     </>
   );
 }

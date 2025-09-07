@@ -2,6 +2,8 @@
 'use client'
 //import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { motion } from 'motion/react';
+import AnimatedButton from './ui/motion/AnimatedButton';
 //import Head from 'next/head';
 
 /* export const metadata = {
@@ -126,104 +128,121 @@ import Link from 'next/link';
 const Home: React.FC = () => {
   return (
     <>
-      {/* Slider */}
-      {/* <section className="pt-16">
-        <div className="mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-8 text-primary-600">
-            Soluciones a Medida para su Patrimonio
-          </h2>
-          <EnviraGallerySlider />
-        </div>
-      </section> */}
-      {/* Hero */}
-      <section className="py-16 bg-gradient-to-r from-gray-200 to-gray-100 text-primary-500">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Baker & Álvarez Business Corporation
-          </h1>
-          <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Expertos en Sociedades Offshore y Protección de Activos con más de 15 años de experiencia internacional.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link
-              href="/servicios"
-              className="text-white bg-primary-600 border font-semibold px-6 py-3 rounded-lg transition-colors"
-            >
-              Nuestros Servicios
-            </Link>
-            <Link
-              href="/contacto"
-              className="bg-[#BE9A42] text-white border font-semibold px-6 py-3 rounded-lg hover:text-primary-700 transition-colors"
-            >
-              Consultoría Gratuita
-            </Link>
+    <motion.div layout 
+      initial={{opacity: 0}}
+      animate={{ opacity: 1 }} 
+      transition={{
+        default: { ease: "linear" },
+        layout: { duration: 0.3 }
+      }}>
+
+        {/* Slider */}
+        {/* <section className="pt-16">
+          <div className="mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-8 text-primary-600">
+              Soluciones a Medida para su Patrimonio
+            </h2>
+            <EnviraGallerySlider />
           </div>
-        </div>
-      </section>
+        </section> */}
+        {/* Hero */}
+        <section className="py-16 bg-gradient-to-r from-gray-200 to-gray-100 text-primary-500">
+          <div className="container mx-auto px-4 text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              Baker & Álvarez Business Corporation
+            </h1>
+            <p className="text-xl mb-8 max-w-3xl mx-auto">
+              Expertos en Sociedades Offshore y Protección de Activos con más de 15 años de experiencia internacional.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <AnimatedButton>
+                <Link
+                  href="/servicios"
+                  className="text-white bg-primary-600 border font-semibold px-6 py-3 rounded-lg transition-colors"
+                >
+                  Nuestros Servicios
+                </Link>
+                
+              </AnimatedButton>
+              <AnimatedButton>
+                <Link
+                  href="/contacto"
+                  className="bg-[#BE9A42] text-white border font-semibold px-6 py-3 rounded-lg hover:text-primary-700 transition-colors"
+                >
+                  Consultoría Gratuita
+                </Link>
 
-     
-
-      {/* Beneficios */}
-      <section className="py-24">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-primary-900">
-            ¿Por qué confiar en nosotros?
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-primary-50 p-6 rounded-lg text-center shadow-md">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-[#BE9A42]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2 text-primary-700">Confidencialidad Absoluta</h3>
-              <p className="text-text-secondary">
-                Garantizamos la máxima discreción y protección de su información bajo estrictos protocolos de seguridad.
-              </p>
-            </div>
-
-            <div className="bg-primary-50 p-6 rounded-lg text-center shadow-md">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-[#BE9A42]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2 text-primary-700">Estructuras Offshore</h3>
-              <p className="text-text-secondary">
-                Constitución y gestión de sociedades en las jurisdicciones más favorables para sus necesidades específicas.
-              </p>
-            </div>
-
-            <div className="bg-primary-50 p-6 rounded-lg text-center shadow-md">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-[#BE9A42]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2 text-primary-700">Protección Patrimonial</h3>
-              <p className="text-text-secondary">
-                Estrategias legales avanzadas para blindar sus activos frente a litigios, divorcios o crisis financieras.
-              </p>
+              </AnimatedButton>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA final */}
-      <section className="py-16 bg-gradient-to-r from-gray-200 to-gray-100 text-primary-600">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Proteja su patrimonio con expertos</h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Más de 500 clientes confían en nosotros para la gestión de sus estructuras internacionales.
-          </p>
-          <Link
-            href="/contacto"
-            className="inline-block bg-white text-primary-600 border font-semibold px-8 py-3 rounded-lg hover:text-gray-400"
-          >
-            Solicitar Asesoría Personalizada
-          </Link>
-        </div>
-      </section>
+      
+
+        {/* Beneficios */}
+        <section className="py-24">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12 text-primary-900">
+              ¿Por qué confiar en nosotros?
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-primary-50 p-6 rounded-lg text-center shadow-md">
+                <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-[#BE9A42]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-primary-700">Confidencialidad Absoluta</h3>
+                <p className="text-text-secondary">
+                  Garantizamos la máxima discreción y protección de su información bajo estrictos protocolos de seguridad.
+                </p>
+              </div>
+
+              <div className="bg-primary-50 p-6 rounded-lg text-center shadow-md">
+                <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-[#BE9A42]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-primary-700">Estructuras Offshore</h3>
+                <p className="text-text-secondary">
+                  Constitución y gestión de sociedades en las jurisdicciones más favorables para sus necesidades específicas.
+                </p>
+              </div>
+
+              <div className="bg-primary-50 p-6 rounded-lg text-center shadow-md">
+                <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-[#BE9A42]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-primary-700">Protección Patrimonial</h3>
+                <p className="text-text-secondary">
+                  Estrategias legales avanzadas para blindar sus activos frente a litigios, divorcios o crisis financieras.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA final */}
+        <section className="py-16 bg-gradient-to-r from-gray-200 to-gray-100 text-primary-600">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl font-bold mb-6">Proteja su patrimonio con expertos</h2>
+            <p className="text-xl mb-8 max-w-3xl mx-auto">
+              Más de 500 clientes confían en nosotros para la gestión de sus estructuras internacionales.
+            </p>
+            <AnimatedButton>
+              <Link
+                href="/contacto"
+                className="inline-block bg-white text-primary-600 border font-semibold px-8 py-3 rounded-lg hover:text-gray-400"
+              >
+                Solicitar Asesoría Personalizada
+              </Link>
+            </AnimatedButton>
+          </div>
+        </section>
+    </motion.div>
     </>
   );
 };

@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { MenuItem } from '@/app/interfaces/menuItem';
+import AnimatedButton from '../motion/AnimatedButton';
 
 const Navigation: React.FC = () => {
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
@@ -90,16 +91,18 @@ const Navigation: React.FC = () => {
           <ul className="flex space-x-8 py-3">
             {menuItems.map((item) => (
               <li key={item.ID}>
-                <Link 
-                  href={item.url} 
-                  className={`font-medium transition-colors hover:text-amber-200 ${
-                    pathname === item.url 
-                      ? 'text-[#BE9A42]' 
-                      : 'text-primary-50 hover:text-primary-hover'
-                  }`}
-                >
-                  {item.title}
-                </Link>
+                <AnimatedButton>
+                  <Link 
+                    href={item.url} 
+                    className={`font-medium transition-colors hover:text-amber-200 ${
+                      pathname === item.url 
+                        ? 'text-[#BE9A42]' 
+                        : 'text-primary-50 hover:text-primary-hover'
+                    }`}
+                  >
+                    {item.title}
+                  </Link>
+                </AnimatedButton>
               </li>
             ))}
           </ul>

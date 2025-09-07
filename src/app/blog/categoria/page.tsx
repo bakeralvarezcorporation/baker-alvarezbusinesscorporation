@@ -6,6 +6,9 @@ import CategoryCard from '@/app/ui/components/CategoryCard';
 
 import { getSiteInfo } from '@/app/lib/wordpress';
 import { Category } from '@/app/interfaces/category';
+
+import * as motion from "motion/react-client";
+
 const siteInfo = await getSiteInfo();
 export const metadata: Metadata = {
   title: `Todas las Categorías - Blog | ${siteInfo.name}`,
@@ -36,6 +39,15 @@ export default async function CategoriesPage() {
   
   return (
     <>
+    <motion.div
+      layout 
+      initial={{opacity: 0}}
+      animate={{ opacity: 1 }} 
+      transition={{
+        default: { ease: "linear" },
+        layout: { duration: 0.3 }
+      }}
+    >
       <nav className="bg-gray-100 py-4">
         <div className="container mx-auto px-4">
           <ol className="list-none p-0 inline-flex">
@@ -74,6 +86,7 @@ export default async function CategoriesPage() {
           </div>
         </div>
       </section>
+    </motion.div>
     </>
   );
 }

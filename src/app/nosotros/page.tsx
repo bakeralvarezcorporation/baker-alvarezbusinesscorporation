@@ -2,6 +2,8 @@
 import React from 'react';
 import Image from 'next/image';
 
+import * as motion from "motion/react-client";
+
 const Nosotros: React.FC = () => {
   // Estos datos vendrían de WordPress en producción
   const team = [
@@ -44,6 +46,15 @@ const Nosotros: React.FC = () => {
 
   return (
     <>
+    <motion.div
+      layout 
+      initial={{opacity: 0}}
+      animate={{ opacity: 1 }} 
+      transition={{
+        default: { ease: "linear" },
+        layout: { duration: 0.3 }
+      }}
+    >
       <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-100">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -119,6 +130,7 @@ const Nosotros: React.FC = () => {
           </div>
         </div>
       </section>
+    </motion.div>
     </>
   );
 };
