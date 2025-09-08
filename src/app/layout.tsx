@@ -17,7 +17,7 @@ const inter = Inter({ subsets: ['latin'] });
 const siteInfo = await getSiteInfo();
 export const metadata = {
   title: `${siteInfo.name}`,
-  description: 'Ofrecemos soluciones web modernas con WordPress headless y Next.js',
+  description: 'Especialistas en Sociedades Offshore y Protección de Activos',
 };
 
 export default function RootLayout({

@@ -167,13 +167,13 @@ export default async function ServiceDetail(props: Props) {
               )}
               
               <AnimatedButton>
-               <Link href="/contacto" className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors font-medium">
+               <Link href="/contacto" className="bg-[#162D4A] text-white px-6 py-3 rounded-md font-medium">
                   Solicitar este servicio
                </Link>
               </AnimatedButton>
             </div>
             
-            <div className="md:w-1/2">
+            {/* <div className="md:w-1/2">
               {service.acf.gallery && service.acf.gallery.length > 0  ? (
                 <div className="relative h-80 w-full rounded-xl overflow-hidden">
                   <Image
@@ -188,7 +188,7 @@ export default async function ServiceDetail(props: Props) {
                   <span className="text-gray-500">Imagen del servicio</span>
                 </div>
               )}
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

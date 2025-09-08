@@ -152,7 +152,7 @@ const Home: React.FC = () => {
               Baker & Álvarez Business Corporation
             </h1>
             <p className="text-xl mb-8 max-w-3xl mx-auto">
-              Expertos en Sociedades Offshore y Protección de Activos con más de 15 años de experiencia internacional.
+              Expertos en Sociedades Offshore y Protección de Activos.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <AnimatedButton>
