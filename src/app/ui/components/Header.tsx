@@ -1,16 +1,13 @@
-'use client'
 // components/Header.tsx
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { getSiteInfo } from '@/app/lib/wordpress';
 
-import { useCursor } from '@/hook/useCursor';
 import AnimatedButton from '../motion/AnimatedButton';
 
 const siteInfo = await getSiteInfo();
 const Header: React.FC = () => {
-  const {onMouseEnter, onMouseLeave, onMouseDown, onMouseUp} = useCursor();
   return (
     <header className="bg-bg-primary shadow-md">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">

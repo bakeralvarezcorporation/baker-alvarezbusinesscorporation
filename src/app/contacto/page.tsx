@@ -3,7 +3,6 @@
 
 import React, { useState } from 'react';
 import HeroSection from '../ui/components/HeroSection';
-import AnimatedButton from '../ui/motion/AnimatedButton';
 
 import * as motion from "motion/react-client";
 
