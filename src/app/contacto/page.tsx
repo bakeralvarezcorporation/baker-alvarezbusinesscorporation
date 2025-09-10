@@ -279,7 +279,7 @@ const Contacto: React.FC = () => {
                       </div>
                       <div>
                         <h3 className="font-medium text-gray-900">Horario de atención</h3>
-                        <p className="text-gray-600">Lunes a Viernes: 9:00 - 18:00</p>
+                        <p className="text-gray-600">Lunes a Viernes: 8:30 - 17:30</p>
                       </div>
                     </div>
                   </div>
