@@ -1,5 +1,7 @@
 // app/layout.tsx
 import './globals.css'; // Ajustado para la ubicación real en Next.js
+
+import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '../context/ThemeContext';
 import Header from './ui/components/Header';
@@ -12,12 +14,14 @@ import CustomCursor from './ui/motion/CustomCursor';
 import { getSiteInfo } from './lib/wordpress';
 
 
+
 import ChatwayDesktop from './ui/components/ChatWay';
 const inter = Inter({ subsets: ['latin'] });
 const siteInfo = await getSiteInfo();
-export const metadata = {
+export const metadata: Metadata = {
   title: `${siteInfo.name}`,
   description: 'Especialistas en Sociedades Offshore y Protección de Activos',
+  icons: "/favicon.png"
 };
 
 export default function RootLayout({

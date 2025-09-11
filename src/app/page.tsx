@@ -2,15 +2,16 @@
 'use client'
 //import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { Metadata } from 'next';
 import { motion } from 'motion/react';
 import AnimatedButton from './ui/motion/AnimatedButton';
 //import Head from 'next/head';
 
-/* export const metadata = {
+export const metadata: Metadata = {
   title: "Baker & Álvarez Business Corporation - Especialistas en Sociedades Offshore",
   description: "Expertos en protección de activos y constitución de sociedades offshore. Soluciones legales y financieras internacionales.",
   keywords: ["offshore", "protección de activos", "sociedades", "planificación patrimonial"],
-}; */
+};
 
 // Componente para el slider de Envira Gallery
 /* const EnviraGallerySlider = () => {
