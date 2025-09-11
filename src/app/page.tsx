@@ -1,9 +1,8 @@
 // pages/index.tsx
-'use client'
 //import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { motion } from 'motion/react';
+import  * as motion  from 'motion/react-client';
 import AnimatedButton from './ui/motion/AnimatedButton';
 //import Head from 'next/head';
 
