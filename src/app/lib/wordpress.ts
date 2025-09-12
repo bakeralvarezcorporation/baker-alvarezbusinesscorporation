@@ -116,6 +116,7 @@ export async function getSiteInfo() {
     }
 
     const siteInfo = await response.json();
+      //console.log(siteInfo.site_icon_url)
     return siteInfo;
   } catch (error) {
     console.error('Error fetching site info:', error);
