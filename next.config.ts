@@ -7,6 +7,12 @@ const nextConfig = {
         protocol: "https",
         hostname: "bakerandalvarez.site",
         port: "", // o el puerto que estés usando, por ejemplo "8888"
+      },
+      {
+        
+        protocol: "https",
+        hostname: "bakerandalvarez.site",
+        port: "", // o el puerto que estés usando, por ejemplo "8888"
         pathname: "/wp-content/uploads/**",
       },
       {
