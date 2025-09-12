@@ -5,15 +5,15 @@ const nextConfig = {
       {
         
         protocol: "https",
-        hostname: "secure.gravatar.com",
+        hostname: "bakerandalvarez.site",
         port: "", // o el puerto que estés usando, por ejemplo "8888"
+        pathname: "/wp-content/uploads/**",
       },
       {
         
         protocol: "https",
-        hostname: "bakerandalvarez.site",
+        hostname: "secure.gravatar.com",
         port: "", // o el puerto que estés usando, por ejemplo "8888"
-        pathname: "/wp-content/uploads/**",
       },
     ],
   },
