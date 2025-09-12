@@ -6,7 +6,6 @@ const nextConfig = {
         
         protocol: "https",
         hostname: "bakerandalvarez.site",
-        port: "", // o el puerto que estés usando, por ejemplo "8888"
       },
       {
         
