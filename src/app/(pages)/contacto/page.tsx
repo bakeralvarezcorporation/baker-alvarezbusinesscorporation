@@ -94,7 +94,7 @@ export default function Contacto (){
                       </div>
                       <div>
                         <h3 className="font-medium text-gray-900">Dirección</h3>
-                        <p className="text-gray-600">PH  Plaza 2000, frente a Plaza New York</p>
+                        <p className="text-gray-600">PH Plaza 2000, frente a Plaza New York / Av. Diagonal, 640, 6° A, Distrito de Les Corts, 08017 Barcelona, España</p>
                       </div>
                     </div>
 
@@ -106,7 +106,7 @@ export default function Contacto (){
                       </div>
                       <div>
                         <h3 className="font-medium text-gray-900">Teléfono</h3>
-                        <p className="text-gray-600">+507 6917-7402</p>
+                        <p className="text-gray-600">+507 6917-7402 / +34 659 138005</p>
                       </div>
                     </div>
 
