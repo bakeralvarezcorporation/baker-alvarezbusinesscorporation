@@ -3,6 +3,12 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
+        protocol: "https",
+        hostname: "construccioneshitech.com",
+        port: "",
+        pathname: "/wp-content/uploads/**",
+      },
+      {
         
         protocol: "https",
         hostname: "secure.gravatar.com",
