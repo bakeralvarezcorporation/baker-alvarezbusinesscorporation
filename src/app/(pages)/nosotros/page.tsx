@@ -7,13 +7,15 @@ import { Metadata } from 'next';
 import * as motion from "motion/react-client";
 import HeroSection from '../../ui/components/HeroSection';
 import AnimatedButton from '../../ui/motion/AnimatedButton';
+import { getSiteInfo } from '@/app/lib/wordpress';
+
+const siteInfo = await getSiteInfo();
 
 export const metadata: Metadata = {
-  title: 'Nosotros | Nuestra Esencia - Experiencia, Discreción y Soluciones a Medida',
-  description: 'Firma especializada en soluciones jurídicas y fiduciarias de alta gama para clientes internacionales. Protección patrimonial, planificación sucesoria y asesoría legal especializada.',
-  keywords: ["Acerca", "Acerca de nosotros", "Quienes somos", "Nuestra historia"]
+  title: `Nosotros - ${siteInfo.name}`,
+  description: 'Conozca a los socios fundadores de Baker & Alvarez Business Corporation. Más de 20 años de experiencia en derecho corporativo internacional y soluciones fiduciarias para clientes exigentes.',
+  keywords: ["nuestra firma", "socios fundadores", "experiencia jurídica", "historia baker alvarez", "equipo legal", "abogados corporativos"]
 };
-
 export default function Nosotros() {
   return (
     <>

@@ -13,8 +13,8 @@ import * as motion from "motion/react-client";
 const siteInfo = await getSiteInfo();
 export const metadata: Metadata = {
   title: `Blog - ${siteInfo.name}`,
-  description: 'Firma especializada en soluciones jurídicas y fiduciarias de alta gama para clientes internacionales. Protección patrimonial, planificación sucesoria y asesoría legal especializada.',
-  keywords: ["Nuestro blog", "Publicaciones", "Noticias", "De interés"]
+  description: 'Blog especializado de Baker & Alvarez: Artículos sobre derecho corporativo internacional, planificación patrimonial, novedades fiscales y tendencias fiduciarias.',
+  keywords: ["artículos jurídicos", "novedades legales", "derecho internacional", "tendencias fiduciarias", "actualidad legal", "blog especializado"]
 };
 
 export default async function Blog(props: { searchParams?: Promise<{ page?: string }> }) {

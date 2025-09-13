@@ -7,9 +7,9 @@ import AnimatedButton from './ui/motion/AnimatedButton';
 //import Head from 'next/head';
 
 export const metadata: Metadata = {
-  title: "Baker & Álvarez Business Corporation - Especialistas en Sociedades Offshore",
-  description: "Expertos en protección de activos y constitución de sociedades offshore. Soluciones legales y financieras internacionales.",
-  keywords: ["offshore", "protección de activos", "sociedades", "planificación patrimonial"],
+  title: `Inicio - Baker & Alvarez Business Corporation`,
+  description: 'Baker & Alvarez Business Corporation: Firma especializada en soluciones jurídicas y fiduciarias de alta gama para clientes internacionales. Expertos en protección patrimonial, planificación sucesoria y asesoría legal.',
+  keywords: ["baker alvarez", "derecho corporativo", "fideicomisos", "protección patrimonial", "planificación sucesoria", "asesoría legal internacional"]
 };
 
 // Componente para el slider de Envira Gallery

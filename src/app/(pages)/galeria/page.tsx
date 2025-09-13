@@ -11,7 +11,8 @@ import * as motion from "motion/react-client";
 const siteInfo = await getSiteInfo();
 export const metadata: Metadata = {
   title: `Galería - ${siteInfo.name}`,
-  description: 'Explora nuestra galería de imágenes y proyectos realizados',
+  description: 'Galería de imágenes de las instalaciones y equipo de Baker & Alvarez Business Corporation. Conozca nuestras sedes y eventos corporativos.',
+  keywords: ["instalaciones", "oficinas", "eventos jurídicos", "equipo legal", "sedes internacionales", "galería corporativa"]
 };
 
 // Obtener todas las galerías de Envira

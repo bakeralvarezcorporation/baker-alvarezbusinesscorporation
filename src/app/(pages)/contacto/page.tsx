@@ -6,11 +6,13 @@ import HeroSection from '../../ui/components/HeroSection';
 
 import * as motion from "motion/react-client";
 import FormSubmit from '@/app/ui/components/ContactoComponentes/FormSubmit';
+import { getSiteInfo } from '@/app/lib/wordpress';
 
-export const metadata: Metadata= {
-  title: "Contacto | Baker & Álvarez Business Corporation - Especialistas en Sociedades Offshore",
-  description: "Expertos en protección de activos y constitución de sociedades offshore. Soluciones legales y financieras internacionales.",
-  keywords: ["Contacto", "Contáctanos", "Escribenos", "Dejanos un mensaje"],
+const siteInfo = await getSiteInfo();
+export const metadata: Metadata = {
+  title: `Contacto - ${siteInfo.name}`,
+  description: 'Contacte a Baker & Alvarez Business Corporation. Oficinas en Panamá, Espanña. Soluciones jurídicas internacionales y asesoría fiduciaria personalizada.',
+  keywords: ["contacto abogados", "oficinas panamá", "asesoría legal personalizada", "consultoría jurídica", "soporte legal", "ubicación firma"]
 };
 
 export default function Contacto (){
