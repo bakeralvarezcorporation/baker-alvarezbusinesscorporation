@@ -67,17 +67,13 @@ export default function Contacto (){
                 {/* Mapa de ubicación */}
                 <div className="bg-white rounded-xl shadow-md p-6 mb-8">
                   <h2 className="text-2xl font-semibold mb-4 text-[#BE9A42] ">Nuestra ubicación</h2>
-                  <div className="rounded-lg overflow-hidden h-80">
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2467.229997875298!2d2.1674030251520073!3d41.38676064603542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sEdificio%20El%20Triangle%2C%20Plaza%20de%20Catalu%C3%B1a%201%2C%204%20piso.%20Eixample%2008002%2C%20Barcelona.%20Espa%C3%B1a.!5e1!3m2!1sen!2sdo!4v1756823499219!5m2!1sen!2sdo"
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="Ubicación de nuestra empresa"
-                    ></iframe>
+                  <div className="overflow-hidden md:h-80 md:flex gap-4">
+                    <div className='w-1/2 m-1'>
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3248.133301761385!2d-79.52056429999999!3d8.984727199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8faca925a1349de5%3A0x4ae0d00d2d34ed0a!2sBUFETE%20BAKER%20%26%20ALVAREZ%20BUSINESS%20CORPORATION!5e1!3m2!1ses-419!2sdo!4v1757949722137!5m2!1ses-419!2sdo" width="300" height="400" style={{border: 0}}  loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div className='w-1/2 m-1'>
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2467.0604454515114!2d2.135684!3d41.3912268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a499eb5e46f103%3A0xf89c1a2152b478aa!2sBUFETE%20BAKER%20%26%20ALVAREZ%20BUSINESS%20CORPORATION!5e1!3m2!1ses-419!2sdo!4v1757951508380!5m2!1ses-419!2sdo" width="300" height="400" style={{ border:0}}  loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                   </div>
                   <p className="text-sm text-gray-600 mt-4">
                     Puedes visitarnos en nuestra oficina principal en el corazón de la ciudad.
