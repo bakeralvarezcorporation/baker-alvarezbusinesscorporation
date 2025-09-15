@@ -14,6 +14,36 @@ import CustomCursor from './ui/motion/CustomCursor';
 import { getSiteInfo } from './lib/wordpress';
 
 
+import StructuredData from './ui/components/StructedData';
+import { CorporationSchema } from './interfaces/schema-types';
+
+const corporationSchema: CorporationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Sociedad Offshore", // Más específico para una firma de servicios
+  "name": "Baker & Álvarez Business Corporation",
+  "description": "Baker & Alvarez Business Corporation: Firma especializada en soluciones jurídicas y fiduciarias de alta gama para clientes internacionales. Expertos en protección patrimonial, planificación sucesoria y asesoría legal. Experto en sociedades offshore",
+  "url": "https://bufetedeabogadosyarquitectosbaker-alvarez.com", // Dominio real
+  "logo": "https://bufetedeabogadosyarquitectosbaker-alvarez.com/_next/image?url=https%3A%2F%2Fbakerandalvarez.site%2Fwp-content%2Fuploads%2F2025%2F08%2Fcropped-LOGO-DE-BUFETE-DE-ABOGADOS_page-0001.jpg&w=1920&q=75",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "PH Plaza 2000, frente a Plaza New York ",
+    "addressLocality": "Panamá",
+    "addressRegion": "PA",
+    "postalCode": "",
+    "addressCountry": "PA"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+507 6917-7402", // Teléfono real
+    "contactType": "customer service",
+    "email": "bufete.letradosyarquitectos@gmail.com" // Email real
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/baker-%C3%A1lvarez-business-corporation/",
+    "https://www.instagram.com/bakeralvarezcorporation/",
+    // Añade todas las redes sociales relevantes
+  ]
+};
 
 import ChatwayDesktop from './ui/components/ChatWay';
 const inter = Inter({ subsets: ['latin'] });
@@ -48,6 +78,10 @@ export default function RootLayout({
                 {children}
               </main>
               <ChatwayDesktop />
+
+              {/* Schema org */}
+              <StructuredData data={corporationSchema} />
+
               <Footer />
             </div>
           </CursorContextProvider>

@@ -8,8 +8,8 @@ import AnimatedButton from './ui/motion/AnimatedButton';
 
 export const metadata: Metadata = {
   title: `Inicio - Baker & Alvarez Business Corporation`,
-  description: 'Baker & Alvarez Business Corporation: Firma especializada en soluciones jurídicas y fiduciarias de alta gama para clientes internacionales. Expertos en protección patrimonial, planificación sucesoria y asesoría legal.',
-  keywords: ["baker alvarez", "derecho corporativo", "fideicomisos", "protección patrimonial", "planificación sucesoria", "asesoría legal internacional"]
+  description: 'Baker & Alvarez Business Corporation: Firma especializada en soluciones jurídicas y fiduciarias de alta gama para clientes internacionales. Expertos en protección patrimonial, planificación sucesoria y asesoría legal. Experto en sociedades offshore',
+  keywords: ["baker alvarez", "sociedad offshore", "derecho corporativo", "fideicomisos", "protección patrimonial", "planificación sucesoria", "asesoría legal internacional"]
 };
 
 // Componente para el slider de Envira Gallery
