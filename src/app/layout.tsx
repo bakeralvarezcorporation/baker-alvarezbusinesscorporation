@@ -26,7 +26,7 @@ const corporationSchema: CorporationSchema = {
   "logo": "https://bufetedeabogadosyarquitectosbaker-alvarez.com/_next/image?url=https%3A%2F%2Fbakerandalvarez.site%2Fwp-content%2Fuploads%2F2025%2F08%2Fcropped-LOGO-DE-BUFETE-DE-ABOGADOS_page-0001.jpg&w=1920&q=75",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "PH Plaza 2000, frente a Plaza New York ",
+    "streetAddress": "Plaza New York, PH Plaza 2000, Panamá, Provincia de Panamá, Panamá",
     "addressLocality": "Panamá",
     "addressRegion": "PA",
     "postalCode": "",
