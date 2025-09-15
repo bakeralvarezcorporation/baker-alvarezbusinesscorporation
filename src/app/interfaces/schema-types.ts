@@ -26,7 +26,7 @@ export interface ContactPoint {
 
 export interface CorporationSchema {
   "@context": "https://schema.org";
-  "@type": "Corporation" | "ProfessionalService" | "Organization";
+  "@type": "Corporation" | "ProfessionalService" | "Organization" | "Sociedad Offshore";
   name: string;
   description: string;
   url: string;
