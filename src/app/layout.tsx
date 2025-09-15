@@ -19,7 +19,7 @@ import { CorporationSchema } from './interfaces/schema-types';
 
 const corporationSchema: CorporationSchema = {
   "@context": "https://schema.org",
-  "@type": "Sociedad Offshore", // Más específico para una firma de servicios
+  "@type": "SociedadOffshore", // Más específico para una firma de servicios
   "name": "Baker & Álvarez Business Corporation",
   "description": "Baker & Alvarez Business Corporation: Firma especializada en soluciones jurídicas y fiduciarias de alta gama para clientes internacionales. Expertos en protección patrimonial, planificación sucesoria y asesoría legal. Experto en sociedades offshore",
   "url": "https://bufetedeabogadosyarquitectosbaker-alvarez.com", // Dominio real
